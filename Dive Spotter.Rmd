@@ -1,0 +1,70 @@
+---
+title: "Dive Spotter"
+author: "Ashley O'Mahony | [ashleyomahony.com](ashleyomahony.com) | March 2019"
+date: "22/03/2019"
+output:
+  html_document:
+    theme: yeti
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+***
+
+### Are you a scuba diver ?  
+
+**No ??**  
+Then, I *highly* recommend you becoming one ! [Check out why](https://www.youtube.com/watch?v=zLOBri_dOAA&list=PLKHEmnEVpJa8wDzHu4IxOYaWkL6WVXimP&index=12).
+
+**Yes ?**  
+Then you know how difficult it can be to organize your next dive trip. There are many criteria to consider to pick your next destination:  
+
+- The Type of Trip  
+*Are you a full-time diver ready for a liveaboard experience ? Or would you prefer to take breaks and visit the surroundings ?*  
+
+- The Budget  
+*The cost of a dive trip can vary a lot depending on the destination: travel, accomodation, equipment rental, dive instructor, guide... Diving in the Maldives won't impact your wallet the same way than diving in the UK !*
+
+- Your Level  
+*Are you a certified diver ? Are the local dive sites adapted to your level ? Are you ready to challenge yourself, or would you rather take it easy ? Strong currents, cold waters, low visibility... There are many parameters to consider to avoid surprises..!*  
+
+- The Dive Sites  
+*Would you like to see corals ? Would you prefer experiencing The Blue ? Would you like to explore a wreck ? Each dive site offers a different experience, so pick wisely !*  
+
+- The Fauna  
+*Are you interested in big animals, like whale sharks, manta rays and mola molas ? Or maybe you prefer tiny things like pygmy seahorse, pipefishes and mandarin fish ? You might have to plan your trip on the right period to maximize your chances to watch one of these...*  
+
+- The Dive Shop  
+*Are the local dive shops well equiped ? Do they offer the certification and specialities you're dreaming of ? Is your favorite instructor still working there ? Trustable dive buddies are essential for an enjoyable experience !*  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
