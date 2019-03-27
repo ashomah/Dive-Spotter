@@ -2,7 +2,9 @@
 title: "Dive Spotter"
 author: "Ashley O'Mahony | [ashleyomahony.com](ashleyomahony.com) | March 2019"
 date: "22/03/2019"
+always_allow_html: yes
 output:
+  github_document:
   html_document:
     theme: yeti
 ---
@@ -157,7 +159,7 @@ Unfortunately, the common names list in English is incomplete, so only the scien
 Some parameters are set to generate the dataset tables.
 ``` {r Parameters, echo = TRUE, include = TRUE, eval = TRUE, warning = FALSE}
 set.seed(100)     #Seed
-nDivers <- 1000   #Number of divers
+nDivers <- 100   #Number of divers
 target_user <- 2
 
 #Arbitrary list of countries
