@@ -1,12 +1,11 @@
 ---
 title: "Dive Spotter"
-author: "Ashley O'Mahony | [ashleyomahony.com](ashleyomahony.com) | March 2019"
-date: "22/03/2019"
+author: "Ashley O'Mahony | [ashleyomahony.com](http://ashleyomahony.com) | March 2019"
 always_allow_html: yes
 output:
-  github_document:
   html_document:
     theme: yeti
+    keep_md: true
 ---
 
 ```{r setup, include=FALSE}
@@ -63,6 +62,8 @@ Then you know how difficult it can be to organize your next dive trip. There are
 - The Dive Shop  
 *Are the local dive shops well equiped ? Do they offer the certification and specialities you're dreaming of ? Is your favorite instructor still working there ? Trustable dive buddies are essential for an enjoyable experience !*  
 
+</br>
+
 **Dive Spotter** is the recommendation engine which will help you to pick the dive trip of your dreams !  
 
 </br>
@@ -71,13 +72,19 @@ Then you know how difficult it can be to organize your next dive trip. There are
 
 # Concept
 
-Divers have a strong community. The certification agencies, like [PADI](www.padi.com) and [SSI](www.divessi.com), encourage this sense of belonging through their training programmes and dive centers partnerships. **Dive Spotter** leverages this community to generate its advices and convey them to its users as if they were talking to their dive buddy.  
+Divers have a strong community. The certification agencies, like [PADI](http://www.padi.com) and [SSI](http://www.divessi.com), encourage this sense of belonging through their training programmes and dive centers partnerships. **Dive Spotter** leverages this community to generate its advices and convey them to its users as if they were talking to their dive buddy.  
 
 Moreover, **every diver is required to keep a logbook**, which records the details of all their dives. Maximum depth, duration, dive site, weather conditions, technical settings, but also dive shop, instructor, dive buddy, encountered critters... These logbooks are requested at registration by dive centers, along with certification cards.  
 
-If a diver's first logbook is usually hold in the form of a paper booklet, many divers quickly switch to a digital format, easier to travel with and allowing to attach the best snapshots of the day. Numerous solutions exist, but one online scuba logbook is particularly interesting: [DiveBoard](www.diveboard.com). This open-source platform is the **largest online logbook on the market since 2011**, gathering a huge dataset about scuba divers around the world: dive historics, dive site descriptions, dive centers reviews, critter pictures...  
+If a diver's first logbook is usually hold in the form of a paper booklet, many divers quickly switch to a digital format, easier to travel with and allowing to attach the best snapshots of the day. Numerous solutions exist, but one online scuba logbook is particularly interesting: [DiveBoard](http://www.diveboard.com). This open-source platform is the **largest online logbook on the market since 2011**, gathering a huge dataset about scuba divers around the world: dive historics, dive site descriptions, dive centers reviews, critter pictures...  
 
 **Dive Spotter** is taking advantage of this data mine to provide divers with travel advices, recommend trustable dive shops, and make dive trips planning a walk in the park !  
+
+</br>
+
+All the files of this project are saved in a [GitHub repository](https://github.com/ashomah/Dive-Spotter).
+
+The libraries used for this project include: `recommenderlab` for recommendation algorithms, `ISOcodes` to use standard country codes, `dplyr` for data manipulation, `ggplot2`, `ggthemes` and `gridExtra` for plotting, and `kableExtra` to display tables in HTML.
 
 </br>
 
@@ -87,7 +94,7 @@ If a diver's first logbook is usually hold in the form of a paper booklet, many 
 
 #### 1. Source and Structure  
 
-[DiveBoard](www.diveboard.com) is an open-source project, which can be reviewed on its [GitHub account](https://github.com/Diveboard). The structure of the database is provided, as well as table contents ([seed](https://github.com/Diveboard/diveboard-web/blob/master/db/seed.sql) and [seed data](https://github.com/Diveboard/diveboard-web/tree/master/db/seed_data/diveboard)). Unfortunately, for understandable privacy reasons, the user data is only accessible through API queries.  
+[DiveBoard](http://www.diveboard.com) is an open-source project, which can be reviewed on its [GitHub account](https://github.com/Diveboard). The structure of the database is provided, as well as table contents ([seed](https://github.com/Diveboard/diveboard-web/blob/master/db/seed.sql) and [seed data](https://github.com/Diveboard/diveboard-web/tree/master/db/seed_data/diveboard)). Unfortunately, for understandable privacy reasons, the user data is only accessible through API queries.  
 
 As a consequence, the dataset used for this *Minimum Viable Product* (MVP) is only inspired from the information available in the DiveBoard database and its structure. It is built as the subset resulting from an *Extract Transform Load* (ETL) process using data related to dive records collected in the *Maldives* (dive spots, dive centers, users, critters...).  
 
@@ -159,7 +166,7 @@ Unfortunately, the common names list in English is incomplete, so only the scien
 Some parameters are set to generate the dataset tables.
 ``` {r Parameters, echo = TRUE, include = TRUE, eval = TRUE, warning = FALSE}
 set.seed(100)     #Seed
-nDivers <- 100   #Number of divers
+nDivers <- 1000   #Number of divers
 target_user <- 2
 
 #Arbitrary list of countries
@@ -493,7 +500,7 @@ kable(head(top_15_ensemble_pro, 10), caption = paste('Recommendations for Pro Di
 
 # Content-Based Recommender  
 
-As each user maintains a mandatory logbook, in which it lists its appreciation for eadch site, and as information about dive sites is available and reasonably informed, it is possible to use a Content-Based algorithm to provide recommendations to the user, without considering other users' information. The recommendations provided will thus be more personalized, and might lead the user to dive sites which are not necessarily well known by its user group.  
+As each user maintains a mandatory logbook, in which it lists its appreciation for eadch site, and as information about dive sites is available and reasonably informed, it is possible to use a **Content-Based algorithm** to provide recommendations to the user, without considering other users' information. The recommendations provided will thus be more personalized, and might lead the user to dive sites which are not necessarily well known by its user group.  
 
 Using a linear regression, based on the user's logbook and the entire dive site list, a new list of recommendations can be provided to the diver.  
 
@@ -597,13 +604,12 @@ grid.arrange(grobs = sites_plots, ncol=2, nrow=3)
 
 # Conclusion
 
-This Recommendation System MVP provides a good idea of what could be achievable regarding dive sites recommendations. The model could be extended to dive shops and provided to travel agencies, enabling a promising revenue stream if deployed on a large scale.  
+This Recommendation System MVP provides a good idea of what could be achievable with **Dive Spotter** regarding dive sites recommendations. The model could be extended to dive shops and provided to travel agencies, enabling a promising revenue stream if deployed on a large scale.  
 
 </br>
 
 ***
 
-###### *Ashley O'Mahony | [ashleyomahony.com](ashleyomahony.com) | March 2019*  
-###### *Master in Big Data and Business Analytics | Oct 2018 Intake | IE School of Human Sciences and Technology*  
+###### *Ashley O'Mahony | [ashleyomahony.com](http://ashleyomahony.com) | March 2019*  
 
 ***
