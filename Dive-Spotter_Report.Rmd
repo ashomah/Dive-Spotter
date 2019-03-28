@@ -5,7 +5,7 @@ always_allow_html: yes
 output:
   html_document:
     theme: yeti
-    keep_md: true
+  github_document: default
 ---
 
 ```{r setup, include=FALSE}
